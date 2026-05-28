@@ -1,0 +1,35 @@
+{
+  "entities": {
+    "cart": {
+      "title": "Cart",
+      "description": "Premium dynamic shopping cart session",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique Firebase Authentication User UID"
+        },
+        "items": {
+          "type": "array",
+          "description": "An array of active cart items with watch records and quantities"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp indicating when the cart state was adjusted"
+        }
+      },
+      "required": [
+        "userId",
+        "items",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/carts/{userId}": {
+      "schema": "cart",
+      "description": "Stores user shopping carts with robust security gates"
+    }
+  }
+}

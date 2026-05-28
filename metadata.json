@@ -1,0 +1,6 @@
+{
+  "name": "Aurafarm",
+  "description": "Aurafarm - Luxury Watches. Time Crafted for Presence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

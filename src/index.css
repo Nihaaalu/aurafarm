@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-gold: #D4AF37;
+  --color-brand-silver: #BFC0C2;
+  --color-brand-charcoal: #111111;
+  --color-brand-black: #050505;
+}
+
+/* Custom visual styles for premium luxury boutique */
+@layer utilities {
+  .text-glow-silver {
+    text-shadow: 0 0 12px rgba(191, 192, 194, 0.25);
+  }
+  .box-shadow-luxury {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+  }
+  .metallic-border {
+    border-image: linear-gradient(to right, #222, #555, #222) 1;
+  }
+}
+
+/* Custom premium scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 999px;
+  border: 1px solid #111111;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFC0C2;
+}
+
+/* Smooth ambient camera animation for hero backgrounds */
+@keyframes slow-pan {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(-1%, 1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.animate-slow-pan {
+  animation: slow-pan 30s ease-in-out infinite;
+}
+
+/* Shimmer flare effect for dials on scroll/hover */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.shimmer-effect:hover::after {
+  animation: shimmer-sweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
